@@ -1,0 +1,25 @@
+# .air.toml
+
+[build]
+  # Command to compile the application
+  cmd = "go build -o ./tmp/main ."
+  # Binary output location
+  bin = "./tmp/main"
+  # Location for log file (if you want to keep a log of air's actions)
+  log = "air.log"
+
+[watch]
+  # List of paths to be watched for changes
+  includes = [
+    "*.go",
+    "./**/*.go"
+  ]
+  # Exclude generated files & tests
+  excludes = [
+    "tmp/*",
+  ]
+
+# Delay between detecting a file change and restarting the application
+[watch.delay]
+  # Wait for a full second (1s) after the last file change before restarting
+  duration = "1000ms"
